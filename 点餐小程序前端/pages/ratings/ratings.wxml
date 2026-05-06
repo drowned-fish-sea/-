@@ -1,0 +1,39 @@
+<!--pages/ratings/ratings.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="header-title">菜品评分榜</view>
+    <view class="header-subtitle">根据用户评价实时更新</view>
+  </view>
+  
+  <view class="list" wx:if="{{ list.length > 0 }}">
+    <view class="item" wx:for="{{ list }}" wx:key="id" bindtap="viewReviews" data-food-id="{{ item.id }}">
+      <view class="item-left">
+        <image class="item-image" src="{{ item.image }}" mode="aspectFill" />
+      </view>
+      <view class="item-right">
+        <view class="item-name">{{ item.name }}</view>
+        <view class="item-info">
+          <view class="item-stars">
+            <text class="star {{ item.avgRating >= 1 ? 'active' : '' }}">★</text>
+            <text class="star {{ item.avgRating >= 2 ? 'active' : '' }}">★</text>
+            <text class="star {{ item.avgRating >= 3 ? 'active' : '' }}">★</text>
+            <text class="star {{ item.avgRating >= 4 ? 'active' : '' }}">★</text>
+            <text class="star {{ item.avgRating >= 5 ? 'active' : '' }}">★</text>
+          </view>
+          <text class="item-rating">{{ item.avgRating }}分</text>
+          <text class="item-count">{{ item.reviewCount }}条评价</text>
+        </view>
+      </view>
+      <view class="item-arrow">›</view>
+    </view>
+  </view>
+  
+  <view class="empty" wx:elif="{{ !loading }}">
+    <view class="empty-icon">暂无评价</view>
+    <view class="empty-text">还没有用户评价，快来成为第一个评价的用户吧！</view>
+  </view>
+  
+  <view class="loading" wx:if="{{ loading }}">
+    <text>加载中...</text>
+  </view>
+</view>

@@ -1,0 +1,80 @@
+/* pages/ratings/reviews.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+.rating-card {
+  background: linear-gradient(135deg, #ff9c35 0%, #ff6b35 100%);
+  padding: 60rpx 40rpx;
+  text-align: center;
+  color: #fff;
+}
+.rating-score {
+  font-size: 100rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+.rating-stars {
+  margin: 20rpx 0;
+}
+.rating-stars .star {
+  font-size: 40rpx;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 4rpx;
+}
+.rating-stars .star.active {
+  color: #fff;
+}
+.rating-count {
+  font-size: 26rpx;
+  opacity: 0.8;
+}
+.review-list {
+  padding: 20rpx;
+}
+.review-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.review-stars .star {
+  font-size: 28rpx;
+  color: #ddd;
+  margin-right: 4rpx;
+}
+.review-stars .star.active {
+  color: #ffcc00;
+}
+.review-time {
+  font-size: 24rpx;
+  color: #999;
+}
+.review-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+.review-empty {
+  color: #ccc;
+  font-style: italic;
+}
+.empty {
+  padding: 100rpx 40rpx;
+  text-align: center;
+}
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+.loading {
+  padding: 60rpx;
+  text-align: center;
+  color: #999;
+}

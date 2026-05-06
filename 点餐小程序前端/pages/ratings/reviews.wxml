@@ -1,0 +1,53 @@
+<!--pages/ratings/reviews.wxml-->
+<view class="container">
+  <!-- 平均评分卡片 -->
+  <view class="rating-card">
+    <view class="rating-score">{{ avgRating }}</view>
+    <view class="rating-stars">
+      <text class="star {{ avgRating >= 1 ? 'active' : '' }}">★</text>
+      <text class="star {{ avgRating >= 2 ? 'active' : '' }}">★</text>
+      <text class="star {{ avgRating >= 3 ? 'active' : '' }}">★</text>
+      <text class="star {{ avgRating >= 4 ? 'active' : '' }}">★</text>
+      <text class="star {{ avgRating >= 5 ? 'active' : '' }}">★</text>
+    </view>
+    <view class="rating-count">{{ reviewCount }}条评价</view>
+  </view>
+  
+  <!-- 评价列表 -->
+  <view class="review-list" wx:if="{{ list.length > 0 }}">
+    <view class="review-item" wx:for="{{ list }}" wx:key="id">
+      <view class="review-header">
+        <view class="review-stars">
+          <text class="star {{ item.rating >= 1 ? 'active' : '' }}">★</text>
+          <text class="star {{ item.rating >= 2 ? 'active' : '' }}">★</text>
+          <text class="star {{ item.rating >= 3 ? 'active' : '' }}">★</text>
+          <text class="star {{ item.rating >= 4 ? 'active' : '' }}">★</text>
+          <text class="star {{ item.rating >= 5 ? 'active' : '' }}">★</text>
+        </view>
+        <text class="review-time">{{ formatTime(item.createTime) }}</text>
+      </view>
+      <view class="review-content" wx:if="{{ item.comment }}">{{ item.comment }}</view>
+      <view class="review-content review-empty" wx:else>该用户未留下评价</view>
+    </view>
+  </view>
+  
+  <view class="empty" wx:elif="{{ !loading }}">
+    <view class="empty-text">暂无评价</view>
+  </view>
+  
+  <view class="loading" wx:if="{{ loading }}">
+    <text>加载中...</text>
+  </view>
+</view>
+
+<wxs module="formatTime">
+  module.exports = function(time) {
+    if (!time) return ''
+    if (typeof time === 'string') return time
+    var date = getDate(time)
+    var y = date.getFullYear()
+    var m = date.getMonth() + 1
+    var d = date.getDate()
+    return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d)
+  }
+</wxs>

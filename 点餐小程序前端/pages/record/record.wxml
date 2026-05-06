@@ -1,0 +1,49 @@
+<!--pages/record/record.wxml-->
+<view class="head">
+  <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{ avatarUrl }}" />
+  </button>
+</view>
+
+<!-- 统计卡片 -->
+<view class="stats">
+  <view class="stats-item">
+    <view class="stats-value">{{ orderCount }}</view>
+    <view class="stats-label">订单数</view>
+  </view>
+  <view class="stats-divider"></view>
+  <view class="stats-item">
+    <view class="stats-value">¥{{ totalAmount }}</view>
+    <view class="stats-label">累计消费</view>
+  </view>
+</view>
+
+<!-- 菜单入口 -->
+<view class="menu">
+  <view class="menu-item" bindtap="goRatings">
+    <view class="menu-icon">⭐</view>
+    <view class="menu-text">菜品评分榜</view>
+    <view class="menu-arrow">›</view>
+  </view>
+</view>
+
+<!-- 消费记录 -->
+<view class="content">
+  <view class="list-title">消费记录</view>
+  <view class="list-empty" wx:if="{{ list.length === 0 }}">暂无消费记录</view>
+  <view class="list-item" wx:for="{{ list }}" wx:key="id">
+    <view class="list-item-l">
+      <view>消费</view>
+      <view class="list-item-time">{{ item.pay_time }}</view>
+    </view>
+    <view class="list-item-r">
+      <text>{{ priceFormat(item.price) }}</text>
+    </view>
+  </view>
+</view>
+
+<wxs module="priceFormat">
+  module.exports = function (price) {
+    return '¥ ' + parseFloat(price)
+  }
+</wxs>

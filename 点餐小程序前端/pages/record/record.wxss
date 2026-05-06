@@ -1,0 +1,116 @@
+/* pages/record/record.wxss */
+page {
+  background-color: #f8f8f8;
+  font-size: 32rpx;
+}
+.head {
+  width: 100%;
+  background-color: #f7982a;
+  height: 400rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatar-wrapper {
+  width: 160rpx;
+  height: 160rpx;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+}
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+/* 列表部分 */
+.list-title {
+  background-color: #fff;
+  padding: 16rpx 0;
+  text-align: center;
+}
+.list-item {
+  display: flex;
+  padding: 42rpx 20rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+.list-item-l {
+  flex: 1;
+}
+.list-item-r {
+  line-height: 76rpx;
+}
+.list-item-r > text {
+  color: #f7982a;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.list-item-time {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 统计卡片 */
+.stats {
+  display: flex;
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.stats-item {
+  flex: 1;
+  text-align: center;
+}
+.stats-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #f7982a;
+}
+.stats-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+.stats-divider {
+  width: 1rpx;
+  background: #eee;
+  margin: 0 20rpx;
+}
+
+/* 菜单 */
+.menu {
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 24rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.menu-item:last-child {
+  border-bottom: none;
+}
+.menu-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+.menu-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+}
+
+/* 空状态 */
+.list-empty {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
